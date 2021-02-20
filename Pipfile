@@ -1,0 +1,18 @@
+[[source]]
+name = "pypi"
+url = "$PYPI_URL"
+verify_ssl = true
+
+[dev-packages]
+pytest = "*"
+pytest-runner = "*"
+
+[packages]
+click = "*"
+ps5-updater = {editable = true,path = "."}
+requests = "*"
+beautifulsoup4 = "*"
+selenium = "*"
+
+[requires]
+python_version = "3.8"
