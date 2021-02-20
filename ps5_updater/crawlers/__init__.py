@@ -6,14 +6,14 @@ from decouple import config
 class Crawler(ABC):
 
     @staticmethod
-    def get_driver():
+    def get_driver(headless=True):
         """
         define a headless chrome driver
         """
         D_PATH = config('DRIVER_PATH')
         options = webdriver.ChromeOptions()
         options.add_argument('headless')
-        return webdriver.Chrome(D_PATH, options=options)
+        return webdriver.Chrome(D_PATH)
 
     @abstractmethod
     def find_ps5_page(self):

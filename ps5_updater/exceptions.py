@@ -1,0 +1,2 @@
+class PageTimeoutError(Exception):
+    pass

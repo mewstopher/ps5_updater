@@ -1,15 +1,28 @@
 # _*_ coding: utf-8 _*_
 
-"""Console script for ps5_updater."""
-import sys
+from ps5_updater.notifiers.store_notifiers import TargetNotifier
+from ps5_updater.logging import logging_config
+from logging.config import dictConfig
 import click
-from ps5_updater.ps5_updater import func1
+import sys
+
+dictConfig(logging_config)
 
 
-@click.command()
+@click.group()
 def main(args=None):
     """console script for ps5_updater."""
-    click.echo("Hello, what would you like to search for?")
+    return 0
+
+
+@main.command()
+def search_target():
+    try:
+        target = TargetNotifier()
+        status = target.send_notification()
+        print(status)
+    except Exception as exc:
+        click.secho(str(exc), err=True, fg='red')
     return 0
 
 

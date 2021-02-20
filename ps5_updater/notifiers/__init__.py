@@ -14,5 +14,6 @@ class Notifier(ABC):
         """
         crawler = self.crawler_factory()
         crawler.find_ps5_page()
-        crawler.send_email()
+        status = crawler.get_status()
+        return status
 
