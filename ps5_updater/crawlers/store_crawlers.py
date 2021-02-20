@@ -45,7 +45,8 @@ class TargetCrawler(Crawler):
                 store_zip.send_keys(config('AREA_CODE'))
                 self.target_logger.info('Area code was input')
                 store_zip.send_keys(Keys.RETURN)
-                self.driver.find_element_by_xpath(Constants.TARGET_STORE_CONFIRM.value).click()
+                WebDriverWait(self.driver, Constants.DELAY.value).until(Ec.presence_of_element_located(
+                    (By.XPATH, Constants.TARGET_STORE_CONFIRM.value))).click()
                 self.target_logger.info('Store selected')
                 return
             except (NoSuchElementException, StaleElementReferenceException, ElementNotInteractableException):
