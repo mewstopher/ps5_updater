@@ -85,7 +85,7 @@ setup(
     url=URL,
     install_requires=REQUIRED,
     extras_requires=EXTRAS,
-    packages=find_packages(include=['ps5_updater'],
+    packages=find_packages(include=['ps5_updater', 'ps5_updater.crawlers', 'ps5_updater.notifiers'],
                            exclude=["tests", "*.tests", "*tests.*", "tests.*"]),
     package_data={'': []},
     include_package_data=True,
