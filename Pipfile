@@ -13,6 +13,7 @@ ps5-updater = {editable = true,path = "."}
 requests = "*"
 beautifulsoup4 = "*"
 selenium = "*"
+python-decouple = "*"
 
 [requires]
 python_version = "3.8"

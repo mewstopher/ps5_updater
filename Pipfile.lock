@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "c379eb1fac72892b93393b6782b3e358bd4da42f09a35f25c6ab7cd369f7c3a2"
+            "sha256": "44390dab2c4ae614ad8c57459854ac3f43266180f5ae3fbdf94900b6ce083b2e"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -59,6 +59,14 @@
         "ps5-updater": {
             "editable": true,
             "path": "."
+        },
+        "python-decouple": {
+            "hashes": [
+                "sha256:2e5adb0263a4f963b58d7407c4760a2465d464ee212d733e2a2c179e54c08d8f",
+                "sha256:a8268466e6389a639a20deab9d880faee186eb1eb6a05e54375bdf158d691981"
+            ],
+            "index": "pypi",
+            "version": "==3.4"
         },
         "requests": {
             "hashes": [
