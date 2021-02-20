@@ -13,7 +13,7 @@ class Crawler(ABC):
         D_PATH = config('DRIVER_PATH')
         options = webdriver.ChromeOptions()
         options.add_argument('headless')
-        return webdriver.Chrome(D_PATH)
+        return webdriver.Chrome(D_PATH, options=options)
 
     @abstractmethod
     def find_ps5_page(self):

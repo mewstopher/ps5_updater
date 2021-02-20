@@ -38,8 +38,10 @@ class TargetCrawler(Crawler):
                 WebDriverWait(self.driver, Constants.DELAY.value).until(Ec.element_to_be_clickable(
                     (By.ID, Constants.TARGET_STORE_SELECT.value))).click()
                 self.target_logger.info('Area code button selected')
-                time.sleep(3)
-                store_zip = self.driver.find_element_by_id(Constants.TARGET_AREA_SELECT.value)
+                time.sleep(5)
+                store_zip = WebDriverWait(self.driver, 20).until(Ec.presence_of_element_located(
+                    (By.ID, Constants.TARGET_AREA_SELECT.value)))
+                #store_zip = self.driver.find_element_by_id(Constants.TARGET_AREA_SELECT.value)
                 store_zip.send_keys(config('AREA_CODE'))
                 self.target_logger.info('Area code was input')
                 store_zip.send_keys(Keys.RETURN)
