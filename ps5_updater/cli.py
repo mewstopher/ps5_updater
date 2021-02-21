@@ -1,6 +1,6 @@
 # _*_ coding: utf-8 _*_
 
-from ps5_updater.notifiers.store_notifiers import TargetNotifier
+from ps5_updater.notifiers.store_notifiers import TargetNotifier, BestBuyNotifier
 from ps5_updater.logging import logging_config
 from logging.config import dictConfig
 import click
@@ -25,6 +25,15 @@ def search_target():
         click.secho(str(exc), err=True, fg='red')
     return 0
 
+
+@main.command()
+def search_best_buy():
+    try:
+        best_buy = BestBuyNotifier()
+        best_buy.send_notification()
+    except Exception as exc:
+        click.secho(str(exc), err=True, fg='red')
+    return 0
 
 if __name__ == "__main__":
     sys.exit(main()) # pragma: no cover

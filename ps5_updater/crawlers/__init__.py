@@ -5,6 +5,10 @@ from decouple import config
 
 class Crawler(ABC):
 
+    @property
+    def store(self):
+        raise NotImplementedError
+
     @staticmethod
     def get_driver(headless=True):
         """
@@ -13,7 +17,8 @@ class Crawler(ABC):
         D_PATH = config('DRIVER_PATH')
         options = webdriver.ChromeOptions()
         options.add_argument('headless')
-        return webdriver.Chrome(D_PATH, options=options)
+        options.add_argument("--disable-notifications")
+        return webdriver.Chrome(D_PATH)
 
     @abstractmethod
     def find_ps5_page(self):
