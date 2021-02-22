@@ -24,6 +24,7 @@ class Notifier(ABC):
         status = crawler.get_status()
         if status:
             self.publish(crawler.store)
+        crawler.driver.close()
         return status
 
     def publish(self, store):
