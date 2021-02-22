@@ -18,6 +18,8 @@ class Notifier(ABC):
         message
         """
         crawler = self.crawler_factory()
+        crawler.initialize_site()
+        crawler.select_store(config('AREA_CODE'))
         crawler.find_ps5_page()
         status = crawler.get_status()
         if status:
